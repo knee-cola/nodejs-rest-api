@@ -9,12 +9,10 @@ services:
       - 27017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: 
-      MONGODB_DATABASE: "rest"
-      MONGODB_USER: "rest-user"
-      MONGODB_PASS: TXyFs2Rz4ZXNBj7D
+      MONGO_INITDB_ROOT_PASSWORD: cveZ8MzjH5AeYPVe
     volumes:
       - ./db:/data/db
+    command: [--auth]
 
   mongo-express:
     image: mongo-express:0.54.0
