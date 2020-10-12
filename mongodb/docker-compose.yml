@@ -9,7 +9,10 @@ services:
       - 27017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: cveZ8MzjH5AeYPVe
+      MONGO_INITDB_ROOT_PASSWORD: 
+      MONGODB_DATABASE: "rest"
+      MONGODB_USER: "rest-user"
+      MONGODB_PASS: TXyFs2Rz4ZXNBj7D
     volumes:
       - ./db:/data/db
 
