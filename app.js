@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv/config');
 
 const app = express();
 
@@ -14,7 +15,7 @@ app.get('/posts', (req,res) => {
     res.send("We are posts...");
 });
 
-mongoose.connect('mongodb://localhost:27017/rest', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('connected to mongo succesfully'))
     .catch((error) => {
         console.log('error connected to DB', error);
