@@ -58,4 +58,16 @@ router.delete('/:postId', async (req, resp) => {
     }
 });
 
+// UPDATE A POST
+router.patch('/:postId', async (req, resp) => {
+    try {
+        const updateResult = await Post.updateOne({_id: req.params.postId}, {$set: { ...req.body }});
+        resp.status(200).json(updateResult);
+    } catch (ex) {
+        resp.status(500).json({
+            ex
+        });
+    }
+});
+
 module.exports = router;
