@@ -4,3 +4,4 @@ This is a demo project created while following the [Build A Restful Api With Nod
 # NPM Packages
 * `Express` - web server
 * `Nodemon` - watches for source changes & restarts node app
+* `Mongoose` - client for MongoDB
