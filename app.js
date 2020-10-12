@@ -1,19 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv/config');
+const bodyParser = require('body-parser');
 
 const app = express();
 
+// Import routes
+const postsRoute = require('./routes/posts');
 
 // Middlewares
-app.use('/posts', () => {
-    console.log("this is a middlwware running");
-});
+app.use(bodyParser.json()); // parses request body to JSON
 
 // ROUTES
-app.get('/posts', (req,res) => {
-    res.send("We are posts...");
-});
+app.use('/posts', postsRoute);
+
 
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('connected to mongo succesfully'))
